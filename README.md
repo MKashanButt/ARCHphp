@@ -1,5 +1,5 @@
 ## 📂 Folder Structure
-
+```
 root/
 │── assets/
 │   ├── images/
@@ -12,6 +12,7 @@ root/
 │── env.example
 │── index.php
 │── template.php
+```
 
 ## 🛠 Setting Up Environment Variables
 
