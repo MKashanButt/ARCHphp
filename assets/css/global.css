@@ -1,0 +1,102 @@
+:root {
+  /* Theme Colors */
+  --primary: "";
+  --secondary: "";
+
+  /* Alerts Color */
+  --success: "";
+  --warning: "";
+  --danger: "";
+
+  /* Font Sizes */
+  --h1-font-size: "";
+  --h2-font-size: "";
+  --h3-font-size: "";
+  --h4-font-size: "";
+  --h5-font-size: "";
+
+  --other-font-size: "";
+
+  /* Button Styling */
+  --btn-color: "";
+  --btn-border-size: "";
+
+  --btn-hover-color: "";
+  --btn-hover-text-color: "";
+
+  /* Transition */
+  --transition-time: "";
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  box-sizing: border-box;
+}
+
+*:hover {
+  transition: var(--transition-time) ease all;
+}
+
+a {
+  all: unset;
+}
+
+button {
+  cursor: pointer;
+  background: var(--btn-color);
+  border: var(--btn-border-size) solid var(--btn-color);
+}
+
+button:hover {
+  background: var(--btn-hover-color);
+  border: var(--btn-border-size) solid var(--btn-hover-color);
+  color: var(--btn-hover-text-color);
+}
+
+.primary {
+  background: var(--primary);
+}
+
+.secondary {
+  background: var(--secondary);
+}
+
+.success {
+  background: var(--success);
+}
+
+.warning {
+  background: var(--warning);
+}
+
+.danger {
+  background: var(--danger);
+}
+
+h1 {
+  font-size: var(--h1-font-size);
+}
+
+h2 {
+  font-size: var(--h2-font-size);
+}
+
+h3 {
+  font-size: var(--h3-font-size);
+}
+
+h4 {
+  font-size: var(--h4-font-size);
+}
+
+h5 {
+  font-size: var(--h5-font-size);
+}
+
+p,
+button,
+ul {
+  font-size: var(--other-font-size);
+}
