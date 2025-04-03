@@ -4,11 +4,11 @@ require_once 'env.php';
 
 // Trimming url and file names for dynamic routing
 $url = ltrim($_SERVER['REQUEST_URI'], '/');
-$view = 'views/' . ($url ?: 'home') . '.html';
+$view = 'views/' . ($url ?: 'index') . '.html';
 $cssfilename = ($url ?: 'home') . '.css';
 
 if (!file_exists($view)) {
-    $view = 'views/404.php';
+    $view = 'views/404.html';
 }
 
 // Adding view to slot variable to render it into template
