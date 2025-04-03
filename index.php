@@ -8,7 +8,7 @@ $view = 'views/' . ($url ?: 'index') . '.html';
 $cssfilename = ($url ?: 'home') . '.css';
 
 if (!file_exists($view)) {
-    $view = 'views/404.html';
+    $view = 'views/404.php';
 }
 
 // Adding view to slot variable to render it into template
