@@ -1,3 +1,8 @@
+<?php
+http_response_code(404);
+header('X-Robots-Tag: noindex'); // Block search indexing
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
