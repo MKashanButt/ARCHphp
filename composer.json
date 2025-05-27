@@ -1,6 +1,6 @@
 {
     "name": "architect/archphp",
-    "description": "A lightweight PHP framework like Laravel",
+    "description": "A Lightweight PHP Framework for Seamless Templating & Routing",
     "type": "project",
     "license": "MIT",
     "autoload": {
