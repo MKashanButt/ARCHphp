@@ -5,6 +5,52 @@ $command = $argv[1] ?? null;
 $migrationsDir = __DIR__ . '/../migrations';
 
 switch ($command) {
+    case 'new':
+        $projectName = $argv[2] ?? null;
+        if (!$projectName) {
+            echo "❌ Project name is required.\n";
+            exit(1);
+        }
+
+        $projectPath = getcwd() . DIRECTORY_SEPARATOR . $projectName;
+
+        if (file_exists($projectPath)) {
+            echo "❌ Directory '$projectName' already exists.\n";
+            exit(1);
+        }
+
+        mkdir($projectPath, 0777, true);
+
+        $skeletonPath = __DIR__ . '/../skeleton';
+
+        function copyDir($src, $dst)
+        {
+            $dir = opendir($src);
+            @mkdir($dst, 0777, true);
+            while (false !== ($file = readdir($dir))) {
+                if ($file !== '.' && $file !== '..') {
+                    $srcPath = $src . DIRECTORY_SEPARATOR . $file;
+                    $dstPath = $dst . DIRECTORY_SEPARATOR . $file;
+
+                    if (is_dir($srcPath)) {
+                        copyDir($srcPath, $dstPath);
+                    } else {
+                        copy($srcPath, $dstPath);
+                    }
+                }
+            }
+            closedir($dir);
+        }
+
+        // Copy skeleton into new project
+        copyDir($skeletonPath, $projectPath);
+
+        echo "✅ Project '$projectName' created at $projectPath\n";
+        echo "👉 Next steps:\n";
+        echo "   cd $projectName\n";
+        echo "   composer install\n";
+        break;
+
     case 'migrate':
         require $migrationsDir;
         break;
