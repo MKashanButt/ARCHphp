@@ -2,11 +2,14 @@
 
 namespace ARCHphp\Scripts;
 
+use ARCHphp\CLI\CommandInput;
+
 class Server
 {
-    public function run(int $port): void
+    public function run(CommandInput $input): void
     {
-        $command = 'php -S 127.0.0.1:' . $port;
+        $port = (int) ($input->getOption('port') ?? 8000);
+        $command = sprintf('php -S %s:%d -t public', config('app.url'), $port);
         passthru($command);
     }
 }
