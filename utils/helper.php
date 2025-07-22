@@ -1,6 +1,17 @@
 <?php
 
 /**
+ * Returning Config
+ */
+
+function config($key, $default = null)
+{
+    $keys = explode(".", $key);
+    $config = require base_path("config/{$keys[0]}.php");
+    return $config[$keys[1]] ?? $default;
+}
+
+/**
  * Putting content in stubs
  */
 
